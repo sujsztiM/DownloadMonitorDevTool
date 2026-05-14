@@ -148,18 +148,6 @@ All settings are stored in `chrome.storage.local` under the key `"settings"`:
 - Save button with validation and feedback
 - Settings persist across popup close/reopen
 
-## Chrome Web Store Submission
-
-This extension is designed to pass Chrome Web Store review:
-
-- ✅ Manifest V3
-- ✅ Minimal permissions (`downloads`, `storage`, `alarms`)
-- ✅ No `host_permissions` (WebSocket URL is user-provided at runtime)
-- ✅ No remote code execution (vanilla JS, no `eval`, no remote imports)
-- ✅ No obfuscation (plain, readable code)
-- ✅ Single purpose (download monitoring only)
-- ✅ Privacy controls (per-field toggles for sensitive data)
-
 ## Data Collection & Privacy Statement
 
 This extension **does NOT collect** the following categories of personal data:
@@ -193,15 +181,6 @@ This extension **MAY collect** only the following (user-controlled):
 - **Settings stored locally**: All configuration is stored in `chrome.storage.local` — never synced or shared
 - **No external communication**: Extension never contacts Google, the developers, or any third-party service except the user-specified WebSocket endpoint
 - **No tracking**: No analytics, no telemetry, no performance monitoring
-
-### Privacy Policy Template
-
-When submitting to Chrome Web Store, include:
-- Extension monitors download events locally and optionally forwards them to a user-configured WebSocket endpoint
-- Filename and URL forwarding are controlled by user-configurable toggles (disabled by default)
-- Extension does not contact Google, extension developers, or any external servers (only the user's specified WebSocket endpoint)
-- Settings are stored locally in the browser
-- Extension requests minimal permissions: `downloads` (for monitoring), `storage` (for settings), `alarms` (for keepalive)
 
 ## Troubleshooting
 
