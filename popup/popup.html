@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Monitor DevTool</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Download Monitor DevTool</h1>
+    </header>
+
+    <main class="content">
+      <!-- WebSocket URL Input -->
+      <div class="form-group">
+        <label for="wsUrl" class="label">WebSocket URL</label>
+        <input
+          id="wsUrl"
+          type="text"
+          class="input"
+          placeholder="ws://localhost:8080/events"
+          spellcheck="false"
+        />
+        <div id="urlError" class="error-message"></div>
+      </div>
+
+      <!-- Enable Toggle -->
+      <div class="form-group toggle-group">
+        <label for="enableToggle" class="toggle-label">
+          <input id="enableToggle" type="checkbox" class="toggle-input" />
+          <span class="toggle-switch"></span>
+          <span class="toggle-text">Enable Notifications</span>
+        </label>
+      </div>
+
+      <!-- Privacy Settings -->
+      <div class="form-group privacy-section">
+        <h3 class="privacy-title">Privacy</h3>
+        <label class="checkbox-label">
+          <input id="sendFilename" type="checkbox" class="checkbox-input" />
+          <span class="checkbox-text">Include filename</span>
+        </label>
+        <label class="checkbox-label">
+          <input id="sendUrl" type="checkbox" class="checkbox-input" />
+          <span class="checkbox-text">Include source URL</span>
+        </label>
+        <label class="checkbox-label">
+          <input id="pingEnabled" type="checkbox" class="checkbox-input" />
+          <span class="checkbox-text">Healthcheck ping</span>
+        </label>
+        <div id="pingIntervalGroup" class="form-group ping-interval-group">
+          <label for="pingInterval" class="label">Ping interval (seconds)</label>
+          <input
+            id="pingInterval"
+            type="number"
+            class="input"
+            min="1"
+            max="3600"
+            placeholder="20"
+          />
+        </div>
+      </div>
+
+      <!-- Status Indicator -->
+      <div class="form-group status-group">
+        <label class="label">Status</label>
+        <div class="status-indicator">
+          <span id="statusDot" class="status-dot status-disabled"></span>
+          <span id="statusText" class="status-text">Disabled</span>
+        </div>
+      </div>
+
+      <!-- Save Button -->
+      <button id="saveBtn" class="button button-primary">Save Settings</button>
+      <div id="saveMessage" class="success-message"></div>
+    </main>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
